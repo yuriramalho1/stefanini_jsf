@@ -1,0 +1,194 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+        "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+	xmlns:h="http://xmlns.jcp.org/jsf/html"
+	xmlns:f="http://xmlns.jcp.org/jsf/core"
+	xmlns:p="http://primefaces.org/ui">
+<!--       xmlns.jcp.org/jsf/core -->
+
+<ui:composition template="/template/template.xhtml">
+	<ui:define name="header">
+		<h:outputStylesheet>
+
+		</h:outputStylesheet>
+		<div class="header header-hide"></div>
+		 <h:outputStylesheet>
+			.ui-widget-header .ui-inputfield{
+				background:#fff;
+				color: #757582;
+			}
+		</h:outputStylesheet>	
+		
+	</ui:define>
+
+	<ui:define name="content">
+
+		<div class="container main">
+			<div class="col-lg-12">
+					<br />	
+						<p:panel id="painelPessoa" header="DADOS PESSOAIS">
+						
+							<h:form id="formInscricao" class="formPadrao">
+							
+							<div class="row">
+							  <div  class="col-xs-offset-10 col-xs-2">
+								<p:commandButton   style="margin-left: 74px" value="Limpar" icon="ui-icon-cancel"
+									  ajax="true" process="@this" action="#{pessoaBean.limpar()}" update=":painelPessoa"  >
+								</p:commandButton>	 
+							  </div>
+							</div>
+							<br />
+							<p:messages autoUpdate="true" closable="true" />
+								<div class="row">
+									<div class="col-md-6 inputComum">
+										<p:inputText id="nome" placeholder="NOME" maxlength="60"
+											required="true" requiredMessage="CAMPO NOME É OBRIGATÓRIO."
+											value="#{pessoaBean.pessoa.nome}" />
+									</div>
+									<div class="col-md-3 inputComum">
+										<p:selectOneMenu id="sexo" required="true"
+											value="#{pessoaBean.pessoa.sexo}"
+											styleClass="selectOneMenuInscricao"
+											requiredMessage="CAMPO SEXO É OBRIGATÓRIO."
+											converterMessage="CAMPO SEXO É OBRIGATÓRIO.">
+											<f:selectItem itemLabel="SEXO..." itemValue="" />
+											<f:selectItems value="#{pessoaBean.listaSexo()}" />
+										</p:selectOneMenu>
+									</div>
+									<div class="col-md-3 inputComum">
+										<p:inputText id="cpf" required="true" maxlength="14"
+											requiredMessage="CAMPO CPF É OBRIGATÓRIO."
+											value="#{pessoaBean.pessoa.cpf}" placeholder="CPF"
+											onkeyup="mascara(this, cpfCnpj)" onfocus="this.select()">
+											<f:validator validatorId="cpfValidator" />
+										</p:inputText>
+									</div>
+								</div>
+
+								<div class="row">
+									<div class="col-md-3 inputComum">
+										<p:calendar id="nascimento" maxdate="01/01/2000"
+											required="true" pattern="dd/MM/yyyy" mask="true"
+											locale="pt_BR" placeholder="DATA NASCIMENTO"
+											value="#{pessoaBean.pessoa.dataNascimento}"
+											requiredMessage="CAMPO DATA NASCIMENTO É OBRIGATÓRIO.">
+										</p:calendar>
+									</div>
+									<div class="col-md-9 inputComum">
+										<p:inputText id="email" placeholder="E-MAIL"
+											validatorMessage="Invalid email format"
+											value="#{pessoaBean.pessoa.email}" maxlength="35">
+											 <f:validateRegex
+											pattern="^[_A-Za-z0-9-\+]+(\.[_A-Za-z0-9-]+)*@[A-Za-z0-9-]+(\.[A-Za-z0-9]+)*(\.[A-Za-z]{2,})$" />
+										</p:inputText>
+									</div>
+								</div>
+								<br />
+								<div class="row">
+									<div class="col-md-4 inputComum">
+										<p:inputText id="nacionalidade" placeholder="NACIONALIDADE"
+											value="#{pessoaBean.pessoa.nacionalidade}" maxlength="75">
+										</p:inputText>
+									</div>
+									<div class="col-md-4 inputComum">
+										<p:inputText id="naturalidade" placeholder="NATURALIDADE"
+											value="#{pessoaBean.pessoa.naturalidade}" maxlength="105">
+										</p:inputText>
+									</div>
+									<div class="col-md-4 inputComum">
+										<p:selectOneMenu id="naturalidadeUf" 
+											value="#{pessoaBean.pessoa.naturalidadeUf}"
+											styleClass="selectOneMenuInscricao" >
+											<f:selectItem itemLabel="NATURALIDADE UF..." itemValue="" />
+											<f:selectItems value="#{pessoaBean.listaEstado()}" />
+										</p:selectOneMenu>
+									</div>
+								</div>
+							<br />
+							<div class="row">
+								<div class="col-md-2">
+									<p:commandButton ajax="false" value="Cadastrar" process="formInscricao"
+										actionListener="#{pessoaBean.cadastrar()}" update=":dtPessoa, formInscricao" />
+								</div>
+							</div>
+							</h:form>
+						</p:panel>
+						<br />
+
+						<p:panel header="PESSOAS">
+							<p:dataTable id="dtPessoa" var="pessoa" rowKey="#{pessoa.id}"
+								value="#{pessoaBean.listPessoasCadastradas}" paginator="true"
+								rowIndexVar="rowIndex" emptyMessage="Não há pessoas cadastradas"
+								lazy="false">
+
+								<p:column headerText="CPF" style="text-align: center; ">
+									<p:outputLabel style="text-align: center;"
+										value="#{pessoa.cpf}" />
+								</p:column>
+
+								<p:column headerText="Nome" style="text-align: Left; ">
+									<p:outputLabel value="#{pessoa.nome}" />
+								</p:column>
+								
+								<p:column headerText="Cadastro" style="text-align: center; ">
+									<p:outputLabel style="text-align: center;"
+										value="#{pessoa.dataCadastro}" >
+										<f:convertDateTime pattern="dd/MM/yyyy HH:mm"/>
+									</p:outputLabel>	
+								</p:column>
+
+								<p:column headerText="Alterar" style="text-align: center; ">
+									<p:commandButton icon="ui-icon-pencil" process="@this"
+										update=":painelPessoa">
+										<f:setPropertyActionListener value="#{pessoa}"
+											target="#{pessoaBean.pessoa}" />
+									</p:commandButton>
+								</p:column>
+
+								<p:column headerText="Remover" style="text-align: center;  ">
+									<p:commandButton icon="ui-icon-trash" update=":delete"
+										oncomplete="PF('deleteDialog').show()" process="@this">
+										<f:setPropertyActionListener value="#{pessoa}"
+											target="#{pessoaBean.pessoaSelecionada}" />
+									</p:commandButton>
+								</p:column>
+
+							</p:dataTable>
+						</p:panel>
+						<p:dialog header="Apagar" widgetVar="deleteDialog"
+							modal="true" resizable="false" appendTo="@(body)">
+							<h:panelGroup id="delete">
+								<h:form acceptcharset="ISO-8859-1" id="formDeleteDialog">
+								<div class="centralizar">
+									<h:outputText value="Deseja apagar a pessoa"
+										style="text-align: center;" />
+									<strong> <h:outputText
+											value="#{pessoaBean.pessoaSelecionada.nome}" />
+									</strong>
+									<h:outputText value="?" />
+								</div>
+								<div class="centralizar" style="width: 180px; margin-top: 20px">
+									<p:commandButton value="Cancelar" ajax="false"
+										action="#{pessoaBean.limpar()}"
+										onclick="PF('deleteDialog').hide" />
+	
+									<p:commandButton value="Apagar" ajax="false"
+										update=":formPesquisaUsuario:usuarios"
+										action="#{pessoaBean.excluir()}"
+										style="margin-left: 15px" />
+									</div>
+								</h:form>
+							</h:panelGroup>
+						</p:dialog>
+
+
+				<!-- the overlay element -->
+				<div class="md-overlay"></div>
+			</div>
+		</div>
+
+	</ui:define>
+</ui:composition>
+</html>

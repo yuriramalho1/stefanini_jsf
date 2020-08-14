@@ -1,0 +1,44 @@
+<?xml version='1.0' encoding='ISO-8859-1' ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:ui="http://java.sun.com/jsf/facelets"
+      xmlns:h="http://java.sun.com/jsf/html"
+      xmlns:f="http://java.sun.com/jsf/core"
+      xmlns:p="http://primefaces.org/ui">
+
+<h:head>
+    <f:facet name="first">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    </f:facet>
+    <ui:insert name="pageTitle"><title>Stefanini</title></ui:insert>
+
+    <script type="text/javascript" src="/stefanini_jsf/js/mask.js"></script>
+    <script type="text/javascript" src="/stefanini_jsf/js/locale-primefaces.js"></script>
+    <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.6.0/Chart.min.js"></script>
+    <link href="/stefanini_jsf/assets/css/flexboxgrid.min.css" rel="stylesheet" type="text/css" />
+    <link href="/stefanini_jsf/assets/css/styles.css" rel="stylesheet" type="text/css" />
+    <link href="/stefanini_jsf/assets/css/bootstrap.css" rel="stylesheet" type="text/css" />
+
+</h:head>
+
+<h:body>
+    <ui:insert name="header">
+    </ui:insert>
+
+    <ui:insert name="content">
+    </ui:insert>
+
+    <ui:insert name="footer">
+
+    </ui:insert>
+  <p:ajaxStatus onstart="PF('statusDialog').show()" onsuccess="PF('statusDialog').hide()" />
+    <p:dialog widgetVar="statusDialog" modal="true" draggable="false"
+              closable="false" resizable="false" showHeader="false">
+        <h:panelGrid cellpadding="0" columns="1" style="text-align:center;">
+            <img src="/stefanini_jsf/loader/ajaxloader.gif" />
+            <h:outputText value="Por favor, aguarde..." style="font-size: 12px;" />
+        </h:panelGrid>
+    </p:dialog>
+</h:body>
+
+</html>

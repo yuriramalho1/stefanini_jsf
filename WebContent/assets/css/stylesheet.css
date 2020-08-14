@@ -1,0 +1,551 @@
+@import url(https://fonts.googleapis.com/css?family=Open+Sans:400,600,300);
+
+@CHARSET "UTF-8";
+p, span, a, label, option, select, legend, tr, td { font-size: 13px !important; }
+
+html{
+	height: 100%;
+	position: relative;
+	min-height: 100%;
+}
+
+body { 
+	background-image: url(/stefanini_jsf/imagem/background.png);
+	background-repeat: no-repeat;
+	background-size: cover; 
+	font-family: Verdana, Arial, Helvetica, sans-serif; 
+	font-size: 11px;
+	height: 100%;
+	/*margin: 0 auto;*/
+	padding: 0 8 0 8 !important;
+	/*margin-bottom: 50px !important;*/
+	
+	background-attachment:fixed;
+}
+
+nav img {
+	padding: 0px 15px 10px 0px;
+	float: left;
+}
+
+footer {
+    position: relative;
+    padding-bottom: 0px;
+    margin-top: -50px;
+    height: 50px;
+    width: 100%;
+    text-align: center;
+}
+
+.rodape { font-size: 10px; position: relative; bottom: 0; }
+
+.corpo { padding: 10px }
+
+.menuTopo { height: 25px; margin-bottom: 5px; margin-left: 50px; clear: both;}
+
+.menuTopo ul { margin: 0; padding: 0; float: left; border: none; }
+
+.menuTopo ul li { float: left; list-style:none; display:block; z-index: 1000; position: relative; padding-right: 10px; }
+
+.menuTopo ul li span { float:left; font: 12px Verdana, Arial, Helvetica, sans-serif;
+        font-weight: bold; text-align:center; padding:0.7em 1.6em 0.7em 1.6em; border-width:0px; 
+        border-left: 1px; text-decoration:none; background-color: transparent; color:#0e437a; border-color:#666; }
+        
+.menuTopo ul li span:hover { color:#333; border-color:#0e437a; background-color:transparent; }
+
+.menuTopo ul li ul { position: absolute; display: none; background: #EFEFEF; top: 30px; }
+
+.menuTopo ul li:hover ul { display: block; border-bottom: 1px solid #aaa; border-left: 1px solid #aaa; border-right: 1px solid #aaa; }
+
+.menuTopo ul li ul li { float: none; text-align: left; padding: 5px 10px 5px 30px; }
+
+.menuTopo ul li ul li:hover { background: #FEFEFE; }
+
+.menuTopo ul li ul li a { padding: 5px 3px; white-space: nowrap; text-decoration: none;
+        background-color: transparent; color:#0e437a; border-color:#666; width: 100%; }
+
+.menuTopo ul li ul li a:hover { background: #FEFEFE; }
+
+.buttonNew { background: -webkit-gradient(linear, 0 0%, 0 100%, from(rgba(0, 150, 0, 0.8)), to(rgba(0, 118, 0, 0))) #00AF00 !important;
+        background: -moz-linear-gradient(center top , rgba(255, 255, 255, 0.8), rgba(255, 255, 255, 0)) repeat scroll 0 0 #00AF00 !important;
+        padding: 1px 1px !important; cursor: pointer !important; float: right;  font-weight: normal !important;
+        color: #fff !important; border: 1px solid #008600 !important; -webkit-box-shadow:#FFFFFF 0 1px 0 !important; box-shadow:#FFFFFF 0 1px 0 !important; }
+        
+.buttonNew:hover { background-color: #00CF00 !important; -webkit-box-shadow:#007300 0 0 3px !important; box-shadow:#007300 0 0 3px; }
+
+.buttonSave { background: -webkit-gradient(linear, 0 0%, 0 100%, from(rgba(53, 118, 255, 0.8)), to(rgba(78, 136, 255, 0))) #3576FF !important;
+        background: -moz-linear-gradient(center top , rgba(255, 255, 255, 0.8), rgba(255, 255, 255, 0)) repeat scroll 0 0 #3576FF !important;
+        padding: 1px 1px !important; cursor: pointer !important; float: right; color: #fff !important; border: 1px solid #3576FF !important; 
+        -webkit-box-shadow:#FFFFFF 0 1px 0 !important; box-shadow:#FFFFFF 0 1px 0 !important; font-weight: normal !important; }
+        
+.buttonCancel { background: -webkit-gradient(linear, 0 0%, 0 100%, from(rgba(255, 54, 54, 0.8)), to(rgba(255, 80, 80, 0))) #3576FF !important; 
+        padding: 1px 1px !important; cursor: pointer !important; float: right; color: #fff !important; border: 1px solid #FF3636 !important; 
+        -webkit-box-shadow:#FFFFFF 0 1px 0 !important; box-shadow:#FFFFFF 0 1px 0 !important; font-weight: normal !important; }
+        
+.buttonSave:hover { background-color: #80A9FF !important; -webkit-box-shadow:#3576FF 0 0 3px !important; box-shadow:#3576FF 0 0 3px; }
+
+.tagMessages { 
+        text-decoration: none; color: #333; list-style: none; padding: 10px; margin: 20px 0 20px 0; border: 1px solid #acbece;
+        background-color: #f0f3f7; background-attachment: scroll; background-x-position: left; background-y-position: top; }
+
+.info { padding: 5px 0 5px 25px; background: url("/protocolo/imagem/ico_msg_info.png") no-repeat left center; }
+
+.error { padding: 5px 0 4px 25px; background: url("/protocolo/imagem/ico_msg_error.png") no-repeat left center; }
+
+.warn { padding: 5px 0 5px 25px; background: url("/protocolo/imagem/ico_msg_warn.png") no-repeat left center; }
+
+fieldset { border: 1px solid #C4C0B9; }
+
+legend{ font-size: 11px !important; font-weight: bold; height: 16px; color: #4F4F4F; padding: 0 5px; }
+
+input[type='text'], [type='password'], [type='textarea'] { background-color: #F8F8FF; padding:3px 3px 2px 3px; border-color: #999999; }
+
+
+
+select[disabled] { border: 1px solid #999 !important; background-color: #E0E0E0 !important; color: #333 !important; }
+
+textarea[disabled] { border: 1px solid #999; background-color: #E0E0E0; color: #333 !important; }
+
+input[readonly] { border: 1px solid #999; background-color: #E0E0E0; color: #333 !important; }
+
+select[readonly] { border: 1px solid #999; background-color: #E0E0E0; color: #333 !important; }
+
+label { font-family: Verdana, Arial, Helvetica, sans-serif; font-size: 12px; font-weight: bold; }
+
+/* OVERRIDE DAS CLASSES PRIMEFACES */
+
+.ui-corner-all { border-bottom-left-radius:2px; border-bottom-right-radius:2px; border-top-left-radius:2px; border-top-right-radius:2px; }
+
+.ui-corner-top { border-top-left-radius:2px; border-top-right-radius:2px; }
+
+.ui-messages-error-icon { background-position: 0px -92px !important; }
+
+.ui-messages-info-icon { background-position: 0px -356px !important; }
+
+.ui-panel { padding: 0.1em; }
+
+.ui-menu { outline:none 0; padding:0.1em 0em !important; position:relative; width:12.5em; color: white !important;}
+
+.ui-menu ul { padding-left: 25px; }
+
+.ui-menu .ui-menuitem-text { font-size: 15px; }
+
+.ui-menu .ui-menu-parent .ui-menu-child { display:none; line-height:1.3; list-style:none; margin:0; outline:0; padding:0.1em; position:absolute; text-decoration:none; width:10.5em; }
+
+.ui-panel .ui-panel-titlebar { padding: 0.2em 0.8em 0.2em !important; }
+
+.ui-panel .ui-panel-content { background: none; border: 0; padding: 1.5em 1em; }
+
+.ui-chkbox .ui-chkbox-box { border-radius: 2px; display: inline-block; height: 12px; width: 12px; }
+
+.ui-icon-check { background-position: -66px -147px; }
+
+.ui-icon-minus { background-position: -50px -131px; }
+
+.ui-button-text-only .ui-button-text { padding: 0.36em 1em; }
+
+.ui-inputfield { font-size: 13px !important; font-weight: normal; margin: 0 !important; outline: none medium !important; padding: 4px 4px 1px !important; } /*  padding: 6px 4px 4px; */
+
+.ui-toolbar { padding: 0.1em; background-color: #dfdfdf; } /*#7096AB*/
+
+.ui-state-disabled { background-image:none; opacity:0.9 !important; background-color: #E0E0E0; color: #333 !important; }
+
+.ui-datatable-scrollable-header { border-bottom: 1px solid #A8A8A8; border-right: 1px solid #A8A8A8; border-top: 1px solid #A8A8A8; }
+
+.ui-tree-container { margin: 0; overflow: auto; padding: 15px !important; white-space: nowrap; }
+
+.ui-selectonemenu-panel .ui-selectonemenu-filter { padding-right: 2px !important; width: 98% !important; }
+
+.ui-selectonemenu-panel .ui-selectonemenu-filter-container { display: inline-block !important; margin: 0 !important; padding: 0.4em !important; position: relative !important; width: 95% !important; }
+
+input[readonly] {
+	background-color: #DDDDDD !important;
+}
+
+/* Estilo do r�dio button */
+.ui-radiobutton-box {
+	width: 10px !important;
+	height: 10px !important;
+}
+
+.ui-icon-bullet {
+	background-position: -84px -148px !important;
+}
+
+.disable-scroll .ui-dialog-content {
+	overflow: hidden !important;
+}
+
+/* Bloquear Scroll do background no modal */
+#wrapper {
+	height: 100%;
+}
+
+.ui-menubar,.ui-menu-child,.ui-menu {
+    background: #EC2029 !important;
+    color: white !important;
+}
+
+.affaires .ui-menuitem-text{color:white !important;}
+
+.ui-button {
+    position: inherit !important;
+}
+
+.ui-button-icon-only .ui-icon, .ui-button-text-icon-left .ui-icon, .ui-button-text-icon-right .ui-icon {
+    float: left !important;
+    margin-top: 5px !important;
+    margin-bottom: 5px !important;
+    margin-left: 6px !important;
+	position: inherit !important;
+	top: auto !important;
+
+}
+
+.formLogin {
+	width: 300px;
+	margin: auto;
+	padding-top: 7%;
+}
+
+.centralizar{
+	margin: 0 auto !important;
+	text-align: center;
+}
+
+.semborda tr,
+.semborda td {
+    border: none !important;
+    background-color: transparent !important;
+}
+
+
+
+.ui-button, button.ui-button.ui-state-default, .ui-button.ui-state-default{
+	background-color: #ea2126 !important;
+	border: 1px solid #ea2126 !important;
+}
+
+.ui-paginator .ui-paginator-page.ui-state-active {
+  background: #ea2126;
+  color: #fff;
+  border-color: #ea2126;
+}
+
+
+
+.icon-novo {
+	background-image: url(../imagem/icones/novo.png) !important;
+	background-size: 15px 15px !important;
+	width: 15px !important;
+	height: 15px !important;
+}
+
+.icon-pesquisar {
+	background-image: url(../imagem/icones/pesquisar.png) !important;
+	background-size: 15px 15px !important;
+	width: 15px !important;
+	height: 15px !important;
+}
+
+.icon-gravar {
+	background-image: url(../imagem/icones/gravar.png) !important;
+	background-size: 15px 15px !important;
+	width: 15px !important;
+	height: 15px !important;
+}
+
+
+
+@font-face {
+    font-family: myriadProSemiBold;
+    src: url(../fonts/MyriadPro/MYRIADPRO-SEMIBOLD.OTF);
+}
+
+@font-face {
+    font-family: myriadPro;
+    src: url(../fonts/MyriadPro/MYRIADPRO-REGULAR.OTF);
+}
+
+.formularioPainel{
+	width: 100%;
+	border: 0px;
+}
+
+.formularioPainel{
+	width: 100%;
+	border: 0px;
+	margin: 0 auto;
+}
+.divCadastroFuncionario{
+	max-width: 990px !important;
+}
+
+.formularioBotoes{
+	width: 100%;
+	text-align: right;
+}
+
+.formularioBotoes button{
+	margin: 0px 7px;
+	border-radius: 12px;
+	text-transform: uppercase;
+}
+
+.formularioBotoes .ui-button-text{
+	padding: 7px 10px 3px 25px;
+	font-size: 10px !important;
+}
+
+.formularioTitulo{
+	width: 100%;
+	font-size: 40px !important;
+	text-transform: uppercase;
+	font-weight: normal !important; 
+	font-family: myriadProSemiBold;
+	text-align: center;
+}
+
+.formularioTabela{
+	width: 100%;
+	margin-top: 10px;
+	text-transform: uppercase;
+	font-weight: normal !important; 
+	font-family: myriadPro;
+}
+
+
+
+.formularioTabela label{
+	display: block
+	text-transform: uppercase;
+	font-weight: normal !important; 
+	font-family: myriadPro;
+}
+
+.formularioTabela input, .formularioTabela .ui-selectonemenu-label, .formularioTabela .ui-selectonemenu{
+	height: 28px;
+	width: 100%; 
+	background-color : #eeeeee !important;
+	border: 0px !important;
+}
+
+.formularioTabela .ui-selectonemenu-trigger{
+	background-color: transparent;
+	border: 0px !important;
+	margin: 3px 5px 0px 0px; 
+}
+
+.formularioTabela table{
+	width: 100%;
+	border: 0px !important;
+}
+
+.formularioTabela > tbody > tr > td{
+	padding: 10px 0px 0px 30px;
+	border: 0px !important;
+}
+
+.formularioTabela > tbody > tr{
+	border: 0px !important;
+}
+
+.formularioTabela > tbody > tr > td:FIRST-CHILD{
+	padding-left: 0px;
+}
+
+.formularioTabela .ui-selectoneradio{
+	width: 0px;
+}
+
+.formularioTabela .ui-selectoneradio td{
+	padding-right: 15px;
+}
+
+.row .ui-selectoneradio td{
+	padding-right: 15px;
+}
+
+.row50{
+	width:50%;
+}
+.row30{
+	width:30% !important;
+}
+
+
+.formularioTabela .ui-radiobutton-box{
+	width: 21px !important;
+	height: 21px !important;
+}
+
+
+
+.consultaExterna > tbody > tr > td{
+	width: 0px;
+}
+
+.consultaExterna > tbody > tr > td:last-child{
+	width: 100%;
+}
+
+.ui-radiobutton-box.ui-state-active .ui-icon{
+	background-image: none !important;
+}
+
+.ui_icon_blank{
+	background-image: none !important;
+}
+
+.ui-chkbox-box.ui-state-active, .ui-chkbox-box.ui-state-focus.ui-state-active, .ui-radiobutton-box.ui-state-active, .ui-radiobutton-box.ui-state-focus.ui-state-active{
+	border: 1px solid #ea2126;
+	background: #ea2126;
+}
+
+.ui-calendar input{
+width: 80% !important;
+}
+
+.ui-calendar button{
+margin-left: 2%;
+}
+
+.table-tr-vertical-align-top{
+	
+}
+
+.table-tr-vertical-align-top tr{
+	min-height: 30px;
+	vertical-align: top;
+}
+
+#formInfo{
+	margin-top: 10px;
+	text-transform: uppercase;
+	font-size: 19px !important;	
+	
+	
+}
+
+#formInfo input{
+	margin-left: 10px !important;
+	
+}
+
+#formInfo label{
+	margin-left: 10px !important;
+	padding-top: 5px !important;
+}
+
+.dateInput input {
+   width:100% !important;
+}
+
+.dateChegadaPais input {
+   width:150px !important;
+}
+
+.dataAdmissoaAfastamento input {
+   width: 100% !important;
+}
+
+.dataConcursoPosse input {
+   width: 152.5px !important;
+}
+
+.headerCenter > div > span{
+	float: none !important;
+}
+
+.headerCenter > div{
+	text-align: center !important;
+}
+.inputInfoComum {
+	width: 305px !important;
+}
+.row {
+	margin-top: 10px !important;
+	text-transform: uppercase;
+	font-weight: normal !important; 
+	font-family: myriadPro;
+}
+
+.row label{
+	display: block text-transform: uppercase;
+	font-weight: normal !important; 
+	font-family: myriadPro;
+}
+
+.row input, .row .ui-selectonemenu-label, .row .ui-selectonemenu{
+	height: 28px;
+	width: 100%; 
+	background-color : #eeeeee !important;
+	border: 0px !important;
+}
+
+
+.row label{
+	display:block;
+}
+
+.row .ui-radiobutton-box{
+	width: 21px !important;
+	height: 21px !important;
+}
+
+button.buttonSearchDialog > span.ui-icon-search {
+	left: 0 !important;
+}
+
+.buttonSearch{
+	margin-left: 8px;
+	top: -3px !important;	
+}
+
+.dtCustomizado > .ui-datatable-header {
+	background: #ea2126 !important;
+	color: white !important;
+	border-color: #ea2126 !important;
+}
+.paddingLeft0{
+	padding-left: 0px !important;
+}
+.inputComum{
+	width:100% 
+}
+
+form[target=CorreiosWin] {
+	display: none;
+}
+
+.selectmenu label{
+	background: none !important;
+}
+
+.selectmenu .ui-selectonemenu-trigger{
+	width: 20px !important;
+	padding: 0 1px !important;
+}
+
+.tbFuncionarioCadastro{
+	background: rgba(240, 248, 255, 0) !important;
+	border: none !important;
+}
+
+.ui-state-hover,
+.ui-state-focus{
+	background: #fff !important;
+}
+
+input[disabled] {  background-color: #E0E0E0 !important; color: #333 !important; }
+input[disabled]:hover{ cursor: not-allowed !important;}
+
+.buttonSearchRow{
+	margin-left: 12px;
+	top: -11px !important;	
+}
+.formularioSubTitulo{
+	font-size: 24px !important;
+	color: #3e3e3b;
+	text-transform: uppercase;
+}

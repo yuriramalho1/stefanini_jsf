@@ -1,0 +1,68 @@
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:ui="http://java.sun.com/jsf/facelets"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:p="http://primefaces.org/ui">
+
+<ui:composition template="/templates/common.xhtml">
+	<ui:define name="body">
+		<h:form acceptcharset="ISO-8859-1" styleClass="formErro500" id="formErro500">
+			<fieldset>
+				<p:messages id="messageAlteraSenha" closable="true" autoUpdate="true"  />
+				<p:panelGrid columns="2" styleClass="semborda "
+					columnClasses="outputLabel, inputText">
+					
+					<h:panelGroup>
+						<h:panelGrid columns="2" >
+							<p:panelGrid columns="1"  >
+								<h:panelGrid columns="1">
+									<img src="../imagem/stop.png" 
+										title="O sistema se recuperou de um erro inesperado." 
+										alt="O sistema se recuperou de um erro inesperado." 
+										width="38"
+										height="38"
+										/>
+								</h:panelGrid>
+								<h:panelGrid columns="1">
+									<img src="../imagem/Warning.png" 
+										title="Você pode continuar usando o sistema normalmente!" 
+										alt="Você pode continuar usando o sistema normalmente!" 
+										width="38"
+										height="38"
+										/>
+								</h:panelGrid>
+								<h:panelGrid columns="1">
+									<img src="../imagem/erro.png" 
+										title="#{erroBean.message}" 
+										alt="#{erroBean.message}"
+										width="38"
+										height="38"
+										/>
+								</h:panelGrid>
+							</p:panelGrid>
+							
+							<p:panelGrid columns="1" >
+								<h:panelGrid columns="1" style="height: 38px;">
+									<h:outputText value="O sistema se recuperou de um erro inesperado."  />
+								</h:panelGrid>
+								<h:panelGrid columns="1" style="height: 38px;">
+									<h:outputText value="Você pode continuar usando o sistema normalmente!"  />
+								</h:panelGrid>
+								<h:panelGrid columns="1" style="height: 38px;">
+									<h:outputText value="Erro: #{erroBean.message}"  />
+								</h:panelGrid>
+							</p:panelGrid>
+							
+							
+						</h:panelGrid>
+					</h:panelGroup>
+					
+				</p:panelGrid>
+			</fieldset>
+		</h:form>
+		
+	</ui:define>
+</ui:composition>
+</html>

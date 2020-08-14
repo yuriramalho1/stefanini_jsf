@@ -1,0 +1,43 @@
+html,
+.fundo{
+    background-color: #f3f5f8;
+	/*background-color: #212739;	*/
+}
+
+.header {
+    /*background-color: #212739;*/
+}
+
+.fundo input{
+	display: block;
+    text-transform: uppercase;
+}
+
+
+.row .ui-selectoneradio td{
+	padding-right: 15px;
+}
+
+.nd-trigger {
+    background-color: transparent;
+    border: none;
+    cursor: pointer;
+    -webkit-transition: all 0.5s;
+    -moz-transition: all 0.5s;
+    -o-transition: all 0.5s;
+    transition: all 0.5s;
+    font-size: 1em;
+    color: #3e4c75;
+    font-weight: bold;
+}
+
+.bc {
+    margin-bottom: 6%;
+    font-size: 14px;
+    letter-spacing: 1px;
+    color: #000;
+}
+
+.ui-button {
+    padding: 5px;
+}

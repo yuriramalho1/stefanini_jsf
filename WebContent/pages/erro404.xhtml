@@ -1,0 +1,25 @@
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:ui="http://java.sun.com/jsf/facelets"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:p="http://primefaces.org/ui">
+
+<ui:composition template="/templates/common.xhtml">
+	<ui:define name="body">
+		<h:form acceptcharset="ISO-8859-1" styleClass="formErro404">
+			<fieldset>
+				<p:panelGrid columns="2" styleClass="semborda centralizar"
+					columnClasses="outputLabel, inputText">
+					
+					<img src="../imagem/Warning.png" width="128" height="128" title="Página não encontrada" alt="Página não encontrada"/>
+					<h:outputText value="Página não encontrada!" style="font-size:40px;" />
+					
+				</p:panelGrid>
+			</fieldset>
+		</h:form>
+		
+	</ui:define>
+</ui:composition>
+</html>
